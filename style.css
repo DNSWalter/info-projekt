@@ -792,7 +792,8 @@ table
   text-shadow: 2px 3px 2px var(--text-shadow);
 }
 
-table a{
+table a
+{
   color: var(--text-color);
 }
 
@@ -866,3 +867,26 @@ td
     width: 30px;
     font-size: 18px;
 }
+
+/* ---------------------------------------------- Footer ---------------------------------------------- */
+footer 
+{
+  box-shadow: 4px 0 16px 0 rgba(0,0,0,.16);
+    background: transparent var(--nav-color);
+    backdrop-filter: blur(28px) saturate(67%);
+    transition: 0.5s ease-in-out;
+}
+
+    footer ul
+    {
+      text-align: right;
+      color: var(--text-color);
+      text-shadow: 2px 3px 2px var(--text-shadow)
+    }
+
+    footer p
+    {
+      text-align: right;
+      color: var(--text-color);
+      text-shadow: 2px 3px 2px var(--text-shadow)
+    }
