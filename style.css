@@ -1,11 +1,38 @@
+:root {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0, 0, 0);  
+    --nav-color: linear-gradient(-45deg,rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.6));
+    --text-color: rgb(0, 0, 0);
+    --text-color-secondary: rgb(255, 255, 255);
+    --text-shadow: rgba(0, 0, 0, 0);
+    --button-color: rgba(0, 0, 0, 0.055);
+    --switch-color: rgba(255, 255, 255, 0.452);
+    --logo-color: #1f1f1f;
+    
+  }
+  
+  .darkmode-mode {
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: rgb(221, 220, 220);
+    --nav-color: linear-gradient(-45deg,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.6));
+    --text-color: rgb(255, 255, 255);
+    --text-color-secondary: rgb(0, 0, 0);
+    --text-shadow: rgba(0, 0, 0, 0.322);
+    --button-color: rgba(0, 0, 0, 0.199);
+    --switch-color: rgba(0, 0, 0, 0.452);
+    --logo-color: #e0e0e0;
+  }
+  
+
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
 html{
-    background-color: antiquewhite;
+    font-size: 0.85em;
+    background-image: url("img/paper.gif");
 }
 
 a {
@@ -14,102 +41,574 @@ a {
 }
 
 body {
+    
     position: relative;
     overflow-x: hidden;
 }
 /* ------------------------------------------------- Navbar ------------------------------------------------- */
 nav {
-    width: fit-content;
-    background-color: rgba(128, 128, 128, 0.947);
-    backdrop-filter: blur(28px) saturate(67%);
-    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
-    rgba(240, 46, 170, 0.3) 10px 10px,
-    rgba(240, 46, 170, 0.2) 15px 15px,
-    rgba(240, 46, 170, 0.1) 20px 20px, 
-    rgba(240, 46, 170, 0.05) 25px 25px;
-    padding-right: 0px;
-    padding-top: 35px;
-    height: calc(100vh - 35px);
+    z-index: 50;
+    width: 40px;
+    height: 100vh;
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
     position: fixed;
-    display:flex;
-    justify-content: center;
-    transition: 1s ease-in-out;  
-}
-
-nav:hover {
-    width: 400px;
-    transition: 1s ease-in-out;
-    background-color: rgba(128, 128, 128, 0.746);
-}
-
-/*? ---------------------------- Logo ---------------------------- */
-.logo{
+    overflow-y: hidden;
+    box-shadow: 4px 0 16px 0 rgba(0,0,0,.16);
+    background: transparent var(--nav-color);
+    backdrop-filter: blur(28px) saturate(67%);
+    transition: 0.5s ease-in-out;
+  }
+  
+  nav:hover {
+    width: 200px;
+    transition: 0.5s ease-in-out;
+    transition-delay: 0.2s;
+  }
+  
+  .nav-button {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /*? ------------------------------ Logo ------------------------------ */
+  .logo {
     width: 100%;
-}
-
-.nes { 
-    margin-bottom: 20vh;
-    width: auto;
-    height: 13vh;
-}
-.nes .body-o{
-    fill:#e0e0e0
-}
-.nes .body3D-s{
-    fill:#f0f0f0
-
-}
-.nes .body3D-o{
-    fill:#c0c0c0
-}
-.nes .body-in{
-    fill:#000000
-}
-.nes .select-start-o{
-    fill:#e0e0e0
-}
-.nes .select-start{
-    fill:#000000
-}
-.nes .ba-o{
-    fill:#e0e0e0
-}
-.nes .ba{
-    fill:#ff0000
-}
-.nes .kreuz{
-    fill:#000000;
-    stroke:#e0e0e0;
-    stroke-width: 0.5px;
-}
-.nes .kabel{
-    fill:#000000
-}
-.nes .streifen{
-    fill:#808080
-}
-
-/*? ---------------------------- Links ---------------------------- */
-.link-wrapper{
-    padding-left: 35px;
-}
-
-.link{
-    
-    margin-bottom: 15px;
-}
-.icon {
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
     font-size: 2em;
-}
-nav:hover .link1::after {
-    content: 'Seite 1';
   }
-nav:hover .link2::after {
-    content: 'Seite 2';
+  
+  .long-cable{
+    height: 4px;
+    width: 20px;
+    position: absolute;
+    top: 5.3px;
+    left: 0;
+    background-color: #000000;
+    transition: 0.5s ease-in-out;
   }
-nav:hover .linkquelle::after {
-    content: 'Quellenregister';
+  
+  nav:hover .long-cable{
+    width: 100px;
+    transition: 0.5s ease-in-out;
+    transition-delay: 0.2s;
   }
+  
+  .logo-titel{
+    position: absolute;
+    font-size: 0.55em;
+    font-weight: bold;
+    left: -80px;
+    top: 12px;
+    color: rgb(255, 0, 0);
+    text-shadow: 2px 0 var(--logo-color), -2px 0 var(--logo-color), 0 2px var(--logo-color), 0 -2px var(--logo-color),
+               1px 1px var(--logo-color), -1px -1px var(--logo-color), 1px -1px var(--logo-color), -1px 1px var(--logo-color),
+               2px 3px 2px rgba(0, 0, 0, 0.322);
+    transition: 0.5s ease-in-out;
+    
+  }
+  
+  nav:hover .logo-titel{
+    left: 20px;
+    transition: 0.5s ease-in-out;
+    transition-delay: 0.3s;
+  }
+  
+  .nes { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    min-width: 70px;
+    height: 40px;
+    min-height: 40px;
+  }
+  
+  .nes .body-o{
+    fill: #e0e0e0;
+  }
+  
+  .nes .body3D-s{
+    fill: #f0f0f0;
+  }
+  
+  .nes .body3D-o{
+    fill: #c0c0c0;
+  }
+  
+  .nes .body-in{
+    fill: #000000;
+  }
+  
+  .nes .select-start-o{
+    fill: #e0e0e0;
+  }
+  
+  .nes .select-start{
+    fill: #000000;
+  }
+  
+  .nes .ba-o{
+    fill: #e0e0e0;
+  }
+  
+  .nes .ba{
+    fill: #ff0000;
+  }
+  
+  .nes .kreuz{
+    fill: #000000;
+    stroke: #e0e0e0;
+    stroke-width: 0.5px;
+  }
+  
+  .nes .kabel{
+    fill: #000000;
+  }
+  
+  .nes .streifen{
+    fill: #808080;
+  }
+  
+  /*? ------------------------------ Links ------------------------------ */
+  .link-wrapper{
+    margin-top: 130px;
+  }
+  
+  .link > a > i {
+    font-size: 1.7em;
+    color: var(--text-color);
+    transition: 0.2s ease-in-out;
+  }
+  
+  nav:hover .link > a > i {
+    transform: scale(90%);
+    transition: 0.2s ease-in-out;
+    transition-delay: 0.2s;
+  }
+  
+  .link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 32px;
+  min-width: 32px;
+  text-shadow: 2px 3px 2px var(--text-shadow);
+  }
+  
+  .link > a:first-child {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    min-height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .link-titel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: initial;
+    font-weight: bold;
+  }
+  
+  nav .link-titel div {
+    position: absolute;
+    width: 200px;
+    margin-left: 10px;
+    opacity: 0;
+    color: var(--text-color);
+    transition: 0.4s ease-in-out;
+  }
+  
+  nav:hover .link-titel div {
+    opacity: 1;
+    transition: 0.4s ease-in-out;
+    transition-delay: 0.2s;
+  }
+  
+  /*? ------------------------------ Soziale Medien ------------------------------ */
+  .social-links{
+    text-shadow: 2px 3px 2px var(--text-shadow);
+    width: 100%;
+    font-size: 1.7em;
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+  }
+  
+  .social-links a:not(:last-of-type){
+    margin-right: 10px;
+  }
+  
+  nav:hover .social-links{
+    opacity: 1;
+    transition: 0.4s ease-in-out;
+    transition-delay: 0.2s;
+  }
+  
+  .social-links i{
+    color: var(--text-color);
+  }
+  
+  /* ------------------------------------------------- Darkmode ------------------------------------------------- */
+  .background-switch-darkmode {
+    z-index: 51;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 5px;
+    background-color: var(--switch-color);
+    backdrop-filter: blur(28px) saturate(67%);
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .background-switch-darkmode:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.397);
+    transition: 0.1s ease-in-out;
+  }
+  
+  .switch-darkmode{
+    border-radius: 25px;
+    width: 100%;
+    height: fit-content;
+    border: 2px solid var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, 
+                rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding: 2px;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .switch-circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    min-width: 10px;
+    height: 10px;
+    min-height: 10px;
+    padding: 3px;
+    border-radius: 50%;
+    color: var(--text-color-secondary);
+    background-color: var(--secondary-color);
+    text-shadow: 2px 3px 2px var(--text-shadow);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, 
+                rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-size: 12px;
+  }
+  
+  /* ------------------------------------------------- Extra ------------------------------------------------- */
+  .flex-center-vertical-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @keyframes slide-to-right-click {
+    0%   {transform: translateX(0%);}
+    100% {transform: translateX(100%);}
+  }
+  
+  @keyframes slide-to-left-click {
+    0%   {transform: translateX(100%);}
+    100% {transform: translateX(0%);}
+  }
+  
+  @keyframes rainbow {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+  
+    /*TODO animation: name 2s infinite;;
+  
+  /* ------------------------------------------------- Responsive ------------------------------------------------- */
+  @media only screen and (max-width: 1050px)
+  {
+      /* 1. BreakPoint: */
+  
+      /*? ----------------------------------------- Navbar ----------------------------------------- */
+      nav {
+          overflow-y: visible;
+          display: flex;
+          align-items: center;
+          height: fit-content;
+          width: 100vw;
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-right: 0;
+          padding-left: 0;
+          box-shadow: none;
+          background: none;
+          backdrop-filter: none;
+      }
+  
+      nav:hover {
+        width: 100%;
+        transition-delay: 0.2s;
+      }
+  
+      .small-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: relative;
+      }
+  
+      .nav-bg{
+        z-index: 20;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 0px;
+        padding-left: 30px;
+        display: flex;
+        height: fit-content;
+        align-items: center;
+        overflow-y: visible;
+        background: transparent var(--nav-color);;
+        backdrop-filter: blur(28px) saturate(67%);
+        box-shadow: 4px 0 16px 0 rgba(0,0,0,.16);
+      }
+      
+      /** -------------------------- Logo -------------------------- */
+      .logo {
+        margin-left: 0;
+        margin-bottom: 0;
+        font-size: 2em;
+        text-shadow: 2px 3px 2px var(--text-shadow);
+        width: auto;
+        position: relative;
+      }
+  
+      .long-cable{
+        height: 3.3px;
+        width: 48px;
+        position: absolute;
+        top: 5.4px;
+        left: -35px;
+        background-color: #000000;
+        transition: 0.5s ease-in-out;
+      }
+      
+      nav:hover .long-cable{
+        width: 48px;
+        transition: 0.5s ease-in-out;
+        transition-delay: 0.2s;
+      }
+  
+      .logo-titel{
+        display: none;
+      }
+  
+       /** -------------------------- Button -------------------------- */
+      .nav-button {
+        padding: 3px;
+        height: 22px;
+        min-height: 22px;
+        width: 22px;
+        min-width: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 40px;
+        font-size: 1.5em;
+        color: var(--text-color);
+        text-shadow: 2px 3px 2px var(--text-shadow);
+        background-color: var(--button-color);
+        border-radius: 7px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        transition: 0.2s ease-in-out;
+      }
+      
+      /** -------------------------- Resposive Link -------------------------- */
+      .link-background {
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: -100vh;
+        background: transparent var(--nav-color);
+        backdrop-filter: blur(2px) saturate(67%);
+        transition: 0.5s ease-in-out;
+      }
+  
+      .link-wrapper{
+        height: 100%;
+        width: 100%;
+        margin-left: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        margin-top: 0;
+      }
+  
+      nav:hover .link > a > i {
+        transform: none;
+      }
+  
+      nav .link-titel div {
+        opacity: 1;
+      }
+  
+      .social-links{
+        opacity: 1;
+        top: 80%;
+      }
+
+      .link:first-of-type{
+        margin-top: 200px;
+      }
+
+      .link{
+        margin-left: 30px;
+      }
+    }
+  
+  
+  
+  
+    @media only screen and (max-width: 500px)
+  {
+      /* 2. BreakPoint: */
+  
+      /*? ----------------------------------------- Navbar ----------------------------------------- */
+      nav {
+          overflow-y: visible;
+          display: flex;
+          align-items: center;
+          height: fit-content;
+          width: 100vw;
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-right: 0;
+          padding-left: 0;
+          box-shadow: none;
+          background: none;
+          backdrop-filter: none;
+      }
+  
+      nav:hover {
+        width: 100%;
+        transition-delay: 0.2s;
+      }
+  
+      .small-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: relative;
+      }
+  
+      /** -------------------------- Logo -------------------------- */
+      .logo {
+        margin-left: 30px;
+        margin-bottom: 0;
+        font-size: 2em;
+        text-shadow: 2px 3px 2px var(--text-shadow);
+        width: auto;
+        position: relative;
+      }
+  
+       /** -------------------------- Button -------------------------- */
+      .nav-button {
+        padding: 3px;
+        height: 22px;
+        min-height: 22px;
+        width: 22px;
+        min-width: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 40px;
+        font-size: 1.5em;
+        color: var(--text-color);
+        text-shadow: 2px 3px 2px var(--text-shadow);
+        background-color: var(--button-color);
+        border-radius: 7px;
+        box-shadow: rgba(2, 2, 3, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(0, 2, 3, 0.35) 0px -2px 6px 0px inset;
+        transition: 0.2s ease-in-out;
+      }
+      
+      /** -------------------------- Resposive Link -------------------------- */
+      .link-background {
+        z-index: -1;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: -100vh;
+        background: transparent var(--nav-color);
+        backdrop-filter: blur(2px) saturate(67%);
+        transition: 0.5s ease-in-out;
+      }
+  
+      .link-wrapper{
+        height: 100%;
+        width: 100%;
+        margin-left: 0;
+        padding-left: 30px;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        opacity: 1;
+        margin-top: 0;
+      }
+  
+      .nav-bg{
+        z-index: 20;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 0px;
+        padding-left: 0px;
+        display: flex;
+        height: fit-content;
+        align-items: center;
+        overflow-y: visible;
+        background: transparent var(--nav-color);
+        backdrop-filter: blur(28px) saturate(67%);
+        box-shadow: 4px 0 16px 0 rgba(0,0,0,.16);
+      }
+  
+  
+      nav:hover .link > a > i {
+        transform: none;
+      }
+  
+      nav .link-titel div {
+        opacity: 1;
+      }
+  
+      .social-links{
+        opacity: 1;
+        top: 60%;
+      }
+    }
 
 /* ------------------------------------------------- Picture ------------------------------------------------- */
 .center {
@@ -125,6 +624,13 @@ nav:hover .linkquelle::after {
     height: 30vh;
 }
 
+.crash-img{
+    display: block;
+    margin-right: auto;
+    width: 100vw;
+    height: 100vh;
+    margin-left: -20vw;
+}
 
 .gameboy-img{
     width: 40vw;
@@ -165,4 +671,93 @@ h2 {
 
 h4 {
 color: #f64904; 
+}
+
+/* ------------------------------------------------- Table ------------------------------------------------- */
+.source-table{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table
+{
+    width: 80vw;
+    min-width: 500px;
+    max-width: 1500px;
+    border-collapse: initial;
+}
+
+.containerTable
+{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 470px;
+    width: fit-content;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .15);
+}
+
+.icon-column
+{
+    width: 40px;
+}
+
+/* -------------------------- TableHead ------------------------------ */
+thead
+{
+    position: relative;
+}
+
+thead th
+{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    line-height: 1;
+    border-bottom: 3px solid #ff0000;
+    padding-bottom: 3px;
+}
+
+th
+{
+    text-align: left;
+    background: rgb(255, 255, 255);
+    color: #ff0000;
+}
+
+/* -------------------------- TableBody ------------------------------ */
+tbody
+{
+    background: rgb(255, 255, 255);
+}
+
+td:first-child
+{
+    padding: 15px 0;
+    border-bottom: 0;
+}
+
+td
+{
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ---------------------------------------------- Fontawesome ---------------------------------------------- */
+.source-table th .fa-magnifying-glass
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.source-table .fa-magnifying-glass
+{
+    color: white;
+    background: #ff0000;
+    height: 30px;
+    width: 30px;
+    font-size: 18px;
 }
