@@ -8,11 +8,12 @@
     --button-color: rgba(0, 0, 0, 0.055);
     --switch-color: rgba(255, 255, 255, 0.452);
     --logo-color: #1f1f1f;
+    --border-color: rgba(0, 0, 0, 0.08);
     
   }
   
   .darkmode-mode {
-    --primary-color: rgb(0, 0, 0);
+    --primary-color: rgb(48, 48, 48);
     --secondary-color: rgb(221, 220, 220);
     --nav-color: linear-gradient(-45deg,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.6));
     --text-color: rgb(255, 255, 255);
@@ -21,6 +22,7 @@
     --button-color: rgba(0, 0, 0, 0.199);
     --switch-color: rgba(0, 0, 0, 0.452);
     --logo-color: #e0e0e0;
+    --border-color: rgba(255, 255, 255, 0.233);
   }
   
 
@@ -32,12 +34,20 @@
 
 html{
     font-size: 0.85em;
-    background-image: url("img/paper.gif");
+    background-color: #000000;
+    background-image:  url("img/paper.gif");
 }
 
 a {
-    color: rgb(0, 0, 0);
-    text-decoration: none; 
+  color: initial;
+  transition: 0.1s ease-in-out;
+  text-decoration: none;
+}
+
+.a:hover {
+  text-decoration: underline;
+  color: #ff0000;
+  transition: 0.1s ease-in-out;
 }
 
 body {
@@ -104,6 +114,7 @@ nav {
     font-weight: bold;
     left: -80px;
     top: 12px;
+    font-family: Orbitron,sans-serif;
     color: rgb(255, 0, 0);
     text-shadow: 2px 0 var(--logo-color), -2px 0 var(--logo-color), 0 2px var(--logo-color), 0 -2px var(--logo-color),
                1px 1px var(--logo-color), -1px -1px var(--logo-color), 1px -1px var(--logo-color), -1px 1px var(--logo-color),
@@ -615,64 +626,149 @@ nav {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
 }
 
 .text-img{
-    width: 40vw;
-    height: 30vh;
+    width: 100%;
+    height: auto;
+    
 }
 
-.crash-img{
-    display: block;
-    margin-right: auto;
-    width: 100vw;
-    height: 100vh;
-    margin-left: -20vw;
-}
+figure{
+  position: relative;
+  width: 100%;
 
-.gameboy-img{
-    width: 40vw;
-    height: 60vh;
 }
 
 figcaption {
-    color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: center;
-    margin-top: -18px;
-    text-shadow: 2px 2px #000000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 3px;
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  text-shadow: 2px 3px 2px var(--text-shadow);
+  background: transparent var(--nav-color);
+  backdrop-filter: blur(28px) saturate(67%);
 }
 
 /* ------------------------------------------------- Content ------------------------------------------------- */
 .content {
-    margin-top: 20vh;
-    margin-left: 20vw;
-    margin-right: 20vw;
-}     
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}    
+
+.content:not(:first-of-type) {
+  margin-top: 15vh;
+  margin-bottom: 10vh;
+  margin-left: 20vw;
+  margin-right: 20vw;
+}
 
 h1 {
     text-align: center;
-    margin-bottom: 5vh;
-    font-family: Orbitron,sans-serif;
-    background: -webkit-linear-gradient(#f64904, #ffd501);
-    -webkit-background-clip: text; /* -webkit: kompatibilität */
-    -webkit-text-fill-color: transparent;
-}
-h2 {
-    text-align: center;
     margin-bottom: 3vh;
-    font-family: Orbitron,sans-serif;
-    background: -webkit-linear-gradient(#f64904, #ffd501);
-    -webkit-background-clip: text; /* -webkit: kompatibilität */
-    -webkit-text-fill-color: transparent;
+    
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+h2:not(:first-of-type) {
+  margin-top: 60px;
+  margin-bottom: 5px;
 }
 
 h4 {
 color: #f64904; 
 }
 
+.center-text{
+  text-align: center;
+}
+
+.gradient{
+  font-family: Orbitron,sans-serif;
+  background: -webkit-linear-gradient(#f64904, #ffd501);
+  -webkit-background-clip: text; /* -webkit: kompatibilität */
+  -webkit-text-fill-color: transparent;
+}
+
+.text, .content-link{
+  font-size: 1.3em;
+  line-height: 1.5;
+}
+
+.text:not(:first-of-type){
+  font-size: 1.3em;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+.content-list{
+  font-size: 1.3em;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.content-list-section{
+  margin-top: 15px;
+  text-decoration: underline;
+}
+
+.page-header-bg-container{
+  position: absolute;
+  top: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page-header-bg-top-container{
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page-header-bg-darkmode{
+  position: absolute;
+  height: 50px;
+  width: 70%;
+  border-radius: 5px;
+  background: transparent var(--nav-color);
+}
+
+.page-header-bg{
+  position: absolute;
+  height: 60px;
+  width: 70%;
+  border-radius: 5px;
+  background: transparent linear-gradient(-45deg,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.6));
+}
+
+.page-header{
+  position: absolute;
+  width: 100%;
+  font-size: 3em;
+}
+
+.zitat{
+  font-style: italic;
+}
+
+.text-img-wrapper{
+  display: flex;
+  align-items: center;
+}
 /* ------------------------------------------------- Table ------------------------------------------------- */
 .source-table{
   height: 100vh;
@@ -682,12 +778,22 @@ color: #f64904;
   align-items: center;
 }
 
+th, td{
+  background-color: var(--primary-color);
+}
+
 table
 {
-    width: 80vw;
-    min-width: 500px;
-    max-width: 1500px;
-    border-collapse: initial;
+  width: 80vw;
+  min-width: 500px;
+  max-width: 1500px;
+  border-collapse: initial;
+  color: var(--text-color);
+  text-shadow: 2px 3px 2px var(--text-shadow);
+}
+
+table a{
+  color: var(--text-color);
 }
 
 .containerTable
@@ -704,7 +810,7 @@ table
     width: 40px;
 }
 
-/* -------------------------- TableHead ------------------------------ */
+/*? -------------------------- TableHead ------------------------------ */
 thead
 {
     position: relative;
@@ -723,11 +829,10 @@ thead th
 th
 {
     text-align: left;
-    background: rgb(255, 255, 255);
     color: #ff0000;
 }
 
-/* -------------------------- TableBody ------------------------------ */
+/*? -------------------------- TableBody ------------------------------ */
 tbody
 {
     background: rgb(255, 255, 255);
@@ -742,7 +847,7 @@ td:first-child
 td
 {
     padding: 15px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* ---------------------------------------------- Fontawesome ---------------------------------------------- */
